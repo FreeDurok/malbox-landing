@@ -21,6 +21,9 @@ FROM nginx:alpine
 # Copy built files from build stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
+# Fix permissions for favicon
+RUN chmod 644 /usr/share/nginx/html/favicon.svg
+
 # Copy nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 

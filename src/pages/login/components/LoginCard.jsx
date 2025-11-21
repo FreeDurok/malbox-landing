@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Container, Typography, Paper } from '@mui/material';
 import IsometricCubeIcon from '../../../components/icons/IsometricCubeIcon';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
+import ConstructionIcon from '@mui/icons-material/Construction';
 import MalBoxLogo from '../../../components/common/MalBoxLogo';
 
 export default function LoginCard({ onEnter }) {
@@ -135,7 +135,7 @@ export default function LoginCard({ onEnter }) {
           size="large"
           fullWidth
           onClick={onEnter}
-          startIcon={<LockOpenIcon />}
+          startIcon={<ConstructionIcon />}
           sx={{
             py: { xs: 1.2, sm: 1.4, md: 1.5 },
             fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' },
@@ -153,7 +153,7 @@ export default function LoginCard({ onEnter }) {
             transition: 'all 0.3s ease'
           }}
         >
-          Enter Platform
+          Coming Soon - Under Development
         </Button>
 
         {/* Footer note */}

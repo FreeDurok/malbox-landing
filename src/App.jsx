@@ -12,7 +12,6 @@ export default function App(){
         color: 'text.primary'
       }}>
         <LoginPage onEnter={() => {
-          // Redirect to main MalBox application
           window.location.href = 'https://malbox.org'
         }} />
       </Box>

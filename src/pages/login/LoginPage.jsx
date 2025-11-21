@@ -3,12 +3,7 @@ import { Box } from '@mui/material';
 import ParticleBackground from './components/ParticleBackground';
 import LoginCard from './components/LoginCard';
 
-export default function LoginPage() {
-  const handleEnter = () => {
-    // Redirect to main MalBox application or show message
-    window.location.href = 'https://malbox.org'; // Update with actual URL
-  };
-
+export default function LoginPage({ onEnter }) {
   return (
     <Box
       sx={{
@@ -25,7 +20,7 @@ export default function LoginPage() {
       <ParticleBackground />
 
       {/* Login card */}
-      <LoginCard onEnter={handleEnter} />
+      <LoginCard onEnter={onEnter} />
     </Box>
   );
 }
