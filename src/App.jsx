@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from '@mui/material'
+import { Analytics } from '@vercel/analytics/react'
 import LoginPage from './pages/login/LoginPage'
 import { ThemeProvider } from './theme'
 
@@ -15,6 +16,7 @@ export default function App(){
           window.location.href = 'https://malbox.org'
         }} />
       </Box>
+      <Analytics />
     </ThemeProvider>
   )
 }
