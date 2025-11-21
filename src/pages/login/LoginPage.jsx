@@ -6,7 +6,7 @@ import LoginCard from './components/LoginCard';
 export default function LoginPage() {
   const handleEnter = () => {
     // Redirect to main MalBox application or show message
-    window.location.href = 'https://malbox.yourdomain.com'; // Update with actual URL
+    window.location.href = 'https://malbox.org'; // Update with actual URL
   };
 
   return (

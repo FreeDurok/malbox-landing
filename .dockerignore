@@ -3,4 +3,11 @@ dist
 .git
 .gitignore
 README.md
+DEPLOYMENT.md
+docker-compose.yml
 .env
+.env.local
+.vscode
+.idea
+*.log
+npm-debug.log*
