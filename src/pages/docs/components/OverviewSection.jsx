@@ -64,39 +64,49 @@ export default function OverviewSection() {
         . It follows a distributed microservices architecture for performing automated malware analysis using Docker containers orchestrated with Docker Compose or Kubernetes.
       </Typography>
 
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 2, md: 3 }, mt: 2, mb: 2 }}>
+      <Box
+        sx={{
+          display: 'grid',
+          gap: { xs: 3.5, md: 3 },
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          alignItems: 'stretch',
+          mt: 2,
+          mb: 2
+        }}
+      >
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
-            <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 calc(50% - 12px)', md: '1 1 calc(50% - 12px)', lg: '1 1 calc(25% - 18px)' } }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 2.5,
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  bgcolor: 'rgba(18, 18, 18, 0.3)',
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  borderRadius: 2,
-                  transition: 'all 0.3s ease',
+            <Paper
+              key={index}
+              elevation={0}
+              sx={{
+                p: 2.5,
+                minHeight: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                bgcolor: 'rgba(18, 18, 18, 0.3)',
+                border: '1px solid',
+                borderColor: 'divider',
+                borderRadius: 2,
+                transition: 'all 0.3s ease',
+                '@media (hover: hover)': {
                   '&:hover': {
                     borderColor: feature.color,
-                    transform: 'translateY(-4px)',
                     boxShadow: `0 8px 24px ${feature.color}30`
                   }
-                }}
-              >
-                <Icon sx={{ fontSize: 48, color: feature.color, mb: 2 }} />
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: feature.color }}>
-                  {feature.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                  {feature.description}
-                </Typography>
-              </Paper>
-            </Box>
+                }
+              }}
+            >
+              <Icon sx={{ fontSize: 48, color: feature.color, mb: 2 }} />
+              <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: feature.color }}>
+                {feature.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                {feature.description}
+              </Typography>
+            </Paper>
           );
         })}
       </Box>

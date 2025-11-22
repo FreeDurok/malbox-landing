@@ -72,12 +72,12 @@ export default function ArchitectureSection() {
           elevation={0}
           sx={{
             p: 3,
-            background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.15) 0%, rgba(156, 39, 176, 0.05) 100%)',
             borderRadius: 2,
             border: 'none'
           }}
         >
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'success.main' }}>
+          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'purple.main' }}>
             Message-Driven
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
@@ -106,12 +106,12 @@ export default function ArchitectureSection() {
           elevation={0}
           sx={{
             p: 3,
-            background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.15) 0%, rgba(156, 39, 176, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%)',
             borderRadius: 2,
             border: 'none'
           }}
         >
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'secondary.main' }}>
+          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'success.main' }}>
             Horizontal Scalability
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
