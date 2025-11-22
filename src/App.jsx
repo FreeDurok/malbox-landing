@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import LoginPage from './pages/login/LoginPage'
 import DocsPage from './pages/docs/DocsPage'
 import { ThemeProvider } from './theme'
@@ -22,6 +23,7 @@ export default function App(){
           </Routes>
         </Box>
         <Analytics />
+        <SpeedInsights />
       </BrowserRouter>
     </ThemeProvider>
   )
