@@ -4,18 +4,27 @@ import ArchitectureDiagram from './ArchitectureDiagram';
 
 export default function ArchitectureSection() {
   return (
-    <Box id="architecture" sx={{ mb: 8, scrollMarginTop: '80px' }}>
+    <Box id="architecture" sx={{ mb: 10, scrollMarginTop: '80px' }}>
       <Typography
         variant="h3"
         sx={{
           fontWeight: 700,
           mb: 2,
-          color: 'primary.main',
+          color: '#FFFFFF',
           fontSize: { xs: '2rem', md: '2.5rem' }
         }}
       >
         Architecture
       </Typography>
+      <Box
+        sx={{
+          width: { xs: 120, sm: 140 },
+          height: 4,
+          borderRadius: 9999,
+          background: (theme) => `linear-gradient(90deg, ${theme.palette.primary.main} 0%, rgba(0,0,0,0) 100%)`,
+          mb: 3
+        }}
+      />
 
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4, fontSize: '1.1rem', lineHeight: 1.8 }}>
         MalBox follows a{' '}
@@ -46,10 +55,9 @@ export default function ArchitectureSection() {
           elevation={0}
           sx={{
             p: 3,
-            bgcolor: 'rgba(255, 120, 0, 0.05)',
-            border: '1px solid',
-            borderColor: 'primary.main',
-            borderRadius: 2
+            background: 'linear-gradient(135deg, rgba(255, 120, 0, 0.15) 0%, rgba(255, 120, 0, 0.05) 100%)',
+            borderRadius: 2,
+            border: 'none'
           }}
         >
           <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'primary.main' }}>
@@ -64,10 +72,9 @@ export default function ArchitectureSection() {
           elevation={0}
           sx={{
             p: 3,
-            bgcolor: 'rgba(76, 175, 80, 0.05)',
-            border: '1px solid',
-            borderColor: 'success.main',
-            borderRadius: 2
+            background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%)',
+            borderRadius: 2,
+            border: 'none'
           }}
         >
           <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'success.main' }}>
@@ -82,10 +89,9 @@ export default function ArchitectureSection() {
           elevation={0}
           sx={{
             p: 3,
-            bgcolor: 'rgba(33, 150, 243, 0.05)',
-            border: '1px solid',
-            borderColor: 'info.main',
-            borderRadius: 2
+            background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(33, 150, 243, 0.05) 100%)',
+            borderRadius: 2,
+            border: 'none'
           }}
         >
           <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'info.main' }}>
@@ -100,17 +106,16 @@ export default function ArchitectureSection() {
           elevation={0}
           sx={{
             p: 3,
-            bgcolor: 'rgba(156, 39, 176, 0.05)',
-            border: '1px solid',
-            borderColor: 'secondary.main',
-            borderRadius: 2
+            background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.15) 0%, rgba(156, 39, 176, 0.05) 100%)',
+            borderRadius: 2,
+            border: 'none'
           }}
         >
           <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'secondary.main' }}>
             Horizontal Scalability
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
-            Scale analysis capacity by increasing worker replicas. Multiple instances of the same plugin can process tasks in parallel from the same queue. Docker Compose handles orchestration.
+            Scale analysis capacity by increasing worker replicas. Multiple instances of the same plugin can process tasks in parallel from the same queue.
           </Typography>
         </Paper>
       </Box>

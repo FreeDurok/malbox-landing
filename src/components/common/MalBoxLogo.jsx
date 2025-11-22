@@ -47,11 +47,11 @@ export default function MalBoxLogo({ fontSize = '2rem', clickable = false, onCli
         sx={{
           color: '#000000',
           bgcolor: 'primary.main',
-          px: 0.5,
-          py: 0.1,
+          px: '0.12em',
+          py: '0.04em',
           borderRadius: 0.4,
           fontWeight: 700,
-          ml: 0.5,
+          ml: 0.4,
           lineHeight: 1,
           display: 'inline-block'
         }}

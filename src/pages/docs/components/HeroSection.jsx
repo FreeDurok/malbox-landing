@@ -1,12 +1,17 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import IsometricCubeIcon from '../../../components/icons/IsometricCubeIcon';
+import MalBoxLogo from '../../../components/common/MalBoxLogo';
 
 export default function HeroSection() {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(135deg, rgba(255, 120, 0, 0.1) 0%, rgba(18, 18, 18, 0.8) 100%)',
+        background: `
+          radial-gradient(ellipse at 15% 20%, rgba(255, 120, 0, 0.18), rgba(255, 120, 0, 0) 32%),
+          radial-gradient(ellipse at 85% 10%, rgba(164, 89, 209, 0.14), rgba(164, 89, 209, 0) 28%),
+          linear-gradient(135deg, rgba(8, 8, 12, 0.95) 0%, rgba(12, 12, 18, 0.9) 45%, rgba(6, 6, 10, 0.96) 100%)
+        `,
         borderBottom: '1px solid',
         borderColor: 'divider',
         py: { xs: 4, md: 6 },
@@ -16,19 +21,21 @@ export default function HeroSection() {
       <Box sx={{ textAlign: 'center', maxWidth: '100%' }}>
         <IsometricCubeIcon sx={{ fontSize: { xs: 60, md: 80 }, color: 'primary.main', mb: 2 }} />
 
-        <Typography
-          variant="h2"
-          sx={{
-            fontWeight: 700,
-            fontSize: { xs: '2.5rem', md: '3.5rem' },
-            mb: 2,
-            background: 'linear-gradient(135deg, #FF7800, #FFA040)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          MalBox Architecture
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1.5, mb: 2 }}>
+          <MalBoxLogo fontSize={{ xs: '2.4rem', md: '3rem' }} />
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 700,
+              fontSize: { xs: '2rem', md: '2.4rem' },
+              background: 'linear-gradient(135deg, #FF7800, #FFA040)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}
+          >
+            Architecture
+          </Typography>
+        </Box>
 
         <Typography
           variant="h5"

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Typography, Paper } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import SettingsIcon from '@mui/icons-material/Settings';
+import QueueIcon from '@mui/icons-material/Queue';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import StorageIcon from '@mui/icons-material/Storage';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 
@@ -14,18 +15,18 @@ const flowSteps = [
     color: '#2196F3'
   },
   {
-    icon: SettingsIcon,
+    icon: QueueIcon,
     title: 'Ingestion & Queuing',
     description: 'Backend extracts archives, detects file types, enqueues tasks',
     details: 'Ingestor worker stores samples in MinIO, publishes tasks to RabbitMQ queues',
-    color: '#FF9800'
+    color: '#9C27B0'
   },
   {
-    icon: SettingsIcon,
+    icon: AccountTreeIcon,
     title: 'Parallel Analysis',
     description: 'Plugin workers consume tasks from their queues in parallel',
     details: 'Each plugin analyzes independently: YARA, Strings, Email, Qiling, VirusTotal, etc.',
-    color: '#9C27B0'
+    color: '#FF9800'
   },
   {
     icon: StorageIcon,
@@ -45,164 +46,237 @@ const flowSteps = [
 
 export default function DataFlowSection() {
   return (
-    <Box id="dataflow" sx={{ mb: 8, scrollMarginTop: '80px' }}>
+    <Box id="dataflow" sx={{ mb: 10, scrollMarginTop: '80px' }}>
       <Typography
         variant="h3"
         sx={{
           fontWeight: 700,
           mb: 2,
-          color: 'primary.main',
+          color: '#FFFFFF',
           fontSize: { xs: '2rem', md: '2.5rem' }
         }}
       >
         Data Flow
       </Typography>
+      <Box
+        sx={{
+          width: { xs: 120, sm: 140 },
+          height: 4,
+          borderRadius: 9999,
+          background: (theme) => `linear-gradient(90deg, ${theme.palette.primary.main} 0%, rgba(0,0,0,0) 100%)`,
+          mb: 3
+        }}
+      />
 
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4, fontSize: '1.1rem', lineHeight: 1.8 }}>
         From sample upload to final report, here's how data flows through MalBox:
       </Typography>
 
-      {/* Visual Flow */}
-      <Paper
-        elevation={0}
-        sx={{
-          p: { xs: 2, md: 4 },
-          mb: 4,
-          bgcolor: 'rgba(18, 18, 18, 0.3)',
-          border: '2px solid',
-          borderColor: 'divider',
-          borderRadius: 3
-        }}
-      >
-        <Box sx={{ position: 'relative' }}>
-          {flowSteps.map((step, idx) => {
-            const Icon = step.icon;
-            const isLast = idx === flowSteps.length - 1;
+      {/* Visual Flow - Card Style */}
+      <Box sx={{ position: 'relative', maxWidth: '900px', mx: 'auto' }}>
+        {flowSteps.map((step, idx) => {
+          const Icon = step.icon;
+          const isLast = idx === flowSteps.length - 1;
+          const isEven = idx % 2 === 0;
 
-            return (
-              <Box key={idx}>
+          return (
+            <React.Fragment key={idx}>
+              {/* Step Card Container */}
+              <Box
+                sx={{
+                  mb: isLast ? 0 : 1.5,
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: isEven ? 'flex-start' : 'flex-end'
+                }}
+              >
+
+              {/* Step Card */}
+              <Paper
+                elevation={0}
+                sx={{
+                  width: { xs: '100%', md: '75%' },
+                  p: 3,
+                  bgcolor: `${step.color}10`,
+                  border: '2px solid',
+                  borderColor: step.color,
+                  borderRadius: 3,
+                  position: 'relative',
+                  overflow: 'visible',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: `0 8px 30px ${step.color}40`,
+                    borderColor: step.color,
+                    bgcolor: `${step.color}18`
+                  }
+                }}
+              >
+                {/* Step Number Badge */}
                 <Box
                   sx={{
+                    position: 'absolute',
+                    top: -16,
+                    left: isEven ? 20 : 'auto',
+                    right: isEven ? 'auto' : 20,
+                    width: 50,
+                    height: 50,
+                    borderRadius: '12px',
+                    bgcolor: step.color,
                     display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 3,
-                    position: 'relative',
-                    pb: isLast ? 0 : 4
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: `0 4px 20px ${step.color}60`,
+                    border: '3px solid',
+                    borderColor: 'background.default',
+                    zIndex: 1
                   }}
                 >
-                  {/* Icon */}
-                  <Box
+                  <Typography
                     sx={{
-                      width: { xs: 50, md: 60 },
-                      height: { xs: 50, md: 60 },
-                      borderRadius: '50%',
-                      bgcolor: `${step.color}20`,
-                      border: '3px solid',
-                      borderColor: step.color,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      position: 'relative',
-                      zIndex: 2
+                      fontSize: '1.5rem',
+                      fontWeight: 800,
+                      color: '#fff',
+                      fontFamily: 'monospace'
                     }}
                   >
-                    <Icon sx={{ fontSize: 32, color: step.color }} />
-                  </Box>
+                    {idx + 1}
+                  </Typography>
+                </Box>
 
-                  {/* Content */}
-                  <Box sx={{ flexGrow: 1, pt: 0.5 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1 }}>
-                      <Typography
-                        sx={{
-                          fontSize: '1.5rem',
-                          fontWeight: 700,
-                          color: step.color,
-                          fontFamily: 'monospace'
-                        }}
-                      >
-                        {idx + 1}
-                      </Typography>
-                      <Typography variant="h6" sx={{ fontWeight: 600, color: step.color }}>
-                        {step.title}
-                      </Typography>
-                    </Box>
+                {/* Icon Floating */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: -20,
+                    right: isEven ? 20 : 'auto',
+                    left: isEven ? 'auto' : 20,
+                    width: 60,
+                    height: 60,
+                    borderRadius: '50%',
+                    bgcolor: 'background.default',
+                    border: '3px solid',
+                    borderColor: step.color,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: `0 0 30px ${step.color}50`,
+                    zIndex: 1
+                  }}
+                >
+                  <Icon sx={{ fontSize: 32, color: step.color }} />
+                </Box>
 
-                    <Typography variant="body1" sx={{ mb: 1, color: 'text.primary' }}>
-                      {step.description}
-                    </Typography>
+                {/* Content */}
+                <Box sx={{ mt: 3 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: 700,
+                      color: step.color,
+                      mb: 1.5,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1
+                    }}
+                  >
+                    {step.title}
+                    <Box
+                      sx={{
+                        flexGrow: 1,
+                        height: 2,
+                        bgcolor: step.color,
+                        opacity: 0.3,
+                        borderRadius: 1
+                      }}
+                    />
+                  </Typography>
 
-                    <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: 1.5,
+                      color: 'text.primary',
+                      fontWeight: 500
+                    }}
+                  >
+                    {step.description}
+                  </Typography>
+
+                  <Box
+                    sx={{
+                      pl: 2,
+                      borderLeft: '3px solid',
+                      borderColor: `${step.color}40`
+                    }}
+                  >
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ fontStyle: 'italic', lineHeight: 1.6 }}
+                    >
                       {step.details}
                     </Typography>
                   </Box>
                 </Box>
+              </Paper>
+              </Box>
 
-                {/* Connector Line */}
-                {!isLast && (
+              {/* Connection Dots - Separate Element */}
+              {!isLast && (
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    py: 1,
+                    mb: 1.5
+                  }}
+                >
                   <Box
                     sx={{
-                      position: 'absolute',
-                      left: 29,
-                      width: 2,
-                      height: 60,
-                      bgcolor: step.color,
-                      opacity: 0.3,
-                      mt: -4,
-                      mb: 4
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: 1
                     }}
-                  />
-                )}
-              </Box>
-            );
-          })}
-        </Box>
-      </Paper>
+                  >
+                    <Box
+                      sx={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        bgcolor: step.color,
+                        opacity: 0.7,
+                        boxShadow: `0 0 10px ${step.color}60`
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: '50%',
+                        background: `linear-gradient(180deg, ${step.color}, ${flowSteps[idx + 1].color})`,
+                        opacity: 0.6
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        bgcolor: flowSteps[idx + 1].color,
+                        opacity: 0.7,
+                        boxShadow: `0 0 10px ${flowSteps[idx + 1].color}60`
+                      }}
+                    />
+                  </Box>
+                </Box>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </Box>
 
-      {/* Code Example */}
-      <Paper
-        elevation={0}
-        sx={{
-          p: 3,
-          bgcolor: 'rgba(0, 0, 0, 0.4)',
-          border: '1px solid',
-          borderColor: 'divider',
-          borderRadius: 2
-        }}
-      >
-        <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'primary.main' }}>
-          Example: Queue Naming Convention
-        </Typography>
-
-        <Box
-          component="pre"
-          sx={{
-            bgcolor: 'rgba(0, 0, 0, 0.6)',
-            p: { xs: 1.5, md: 2 },
-            borderRadius: 1,
-            overflow: 'auto',
-            overflowX: 'auto',
-            fontSize: { xs: '0.75rem', md: '0.85rem' },
-            lineHeight: 1.6,
-            color: '#A9B7C6'
-          }}
-        >
-          <Box component="code">
-            {`# RabbitMQ Queue Names
-{category}.{plugin-id}
-
-# Examples:
-static.yara              → YARA pattern matching
-static.strings           → String extraction
-static.email-analyzer    → Email analysis
-dynamic.windows-emulation → Behavior emulation
-third-party.virustotal   → VirusTotal scanning
-core.results             → Results aggregation
-
-# Each plugin subscribes to its queue and processes tasks independently`}
-          </Box>
-        </Box>
-      </Paper>
     </Box>
   );
 }

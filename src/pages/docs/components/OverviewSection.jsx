@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Paper } from '@mui/material';
-import SecurityIcon from '@mui/icons-material/Security';
+import HubIcon from '@mui/icons-material/Hub';
 import ExtensionIcon from '@mui/icons-material/Extension';
 import SpeedIcon from '@mui/icons-material/Speed';
 import CloudQueueIcon from '@mui/icons-material/CloudQueue';
@@ -21,41 +21,50 @@ const features = [
   {
     icon: CloudQueueIcon,
     title: 'Containerized',
-    description: 'Docker-based deployment with orchestration via Docker Compose',
+    description: 'Docker-based deployment; orchestrate with Docker Compose or Kubernetes',
     color: '#2196F3'
   },
   {
-    icon: SecurityIcon,
-    title: 'Multi-Engine',
-    description: 'YARA, CAPA, VirusTotal, Qiling and more analysis engines',
+    icon: HubIcon,
+    title: 'Message-Driven',
+    description: 'RabbitMQ-backed queues keep services decoupled and resilient',
     color: '#9C27B0'
   }
 ];
 
 export default function OverviewSection() {
   return (
-    <Box id="overview" sx={{ mb: 8, scrollMarginTop: '80px' }}>
+    <Box id="overview" sx={{ mb: 10, pb: 2, scrollMarginTop: '80px' }}>
       <Typography
         variant="h3"
         sx={{
           fontWeight: 700,
           mb: 2,
-          color: 'primary.main',
+          color: '#FFFFFF',
           fontSize: { xs: '2rem', md: '2.5rem' }
         }}
       >
         Overview
       </Typography>
+      <Box
+        sx={{
+          width: { xs: 120, sm: 140 },
+          height: 4,
+          borderRadius: 9999,
+          background: (theme) => `linear-gradient(90deg, ${theme.palette.primary.main} 0%, rgba(0,0,0,0) 100%)`,
+          mb: 3
+        }}
+      />
 
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 4, fontSize: '1.1rem', lineHeight: 1.8 }}>
+      <Typography variant="body1" color="text.secondary" sx={{ mb: 5, fontSize: '1.1rem', lineHeight: 1.8 }}>
         MalBox is a lightweight, experimental malware analysis sandbox platform designed as a{' '}
         <Box component="span" sx={{ color: 'primary.main', fontWeight: 600 }}>
           modular, containerized, and extensible system
         </Box>
-        . It follows a distributed microservices architecture for performing automated malware analysis using Docker containers orchestrated with Docker Compose.
+        . It follows a distributed microservices architecture for performing automated malware analysis using Docker containers orchestrated with Docker Compose or Kubernetes.
       </Typography>
 
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 2, md: 3 }, mb: 2 }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 2, md: 3 }, mt: 2, mb: 2 }}>
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
@@ -63,9 +72,8 @@ export default function OverviewSection() {
               <Paper
                 elevation={0}
                 sx={{
-                  p: 3,
+                  p: 2.5,
                   height: '100%',
-                  minHeight: '200px',
                   display: 'flex',
                   flexDirection: 'column',
                   bgcolor: 'rgba(18, 18, 18, 0.3)',

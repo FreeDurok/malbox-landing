@@ -4,38 +4,38 @@ export default function ArchitectureDiagram() {
   return (
     <svg
       width="100%"
-      viewBox="0 0 1200 850"
+      viewBox="0 0 1200 780"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
     >
       {/* Markers */}
       <defs>
-        <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#2196F3" />
         </marker>
-        <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#FF7800" />
         </marker>
-        <marker id="arrowPrimary" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowPrimary" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#FF6F00" />
         </marker>
-        <marker id="arrowWarning" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowWarning" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#F59E0B" />
         </marker>
-        <marker id="arrowInfo" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowInfo" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#42A5F5" />
         </marker>
-        <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#4CAF50" />
         </marker>
-        <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#9C27B0" />
         </marker>
       </defs>
 
       {/* Title */}
-      <text x="600" y="35" textAnchor="middle" fill="#FF7800" fontSize="24" fontWeight="bold">
-        MalBox Microservices Architecture
+      <text x="600" y="35" textAnchor="middle" fill="#B0B0B0" fontSize="24" fontWeight="bold">
+        Microservices Architecture
       </text>
 
       {/* ============ ROW 1: Frontend + Backend + Storage ============ */}
@@ -101,9 +101,9 @@ export default function ArchitectureDiagram() {
 
       {/* ============ Arrows: RabbitMQ -> Workers (clean, non-overlapping) ============ */}
 
-      <path d="M 380 290 L 190 365" stroke="#FF6F00" strokeWidth="2" fill="none" markerEnd="url(#arrowPrimary)" />
+      <path d="M 380 290 L 380 320 L 190 320 L 190 365" stroke="#FF6F00" strokeWidth="2" fill="none" markerEnd="url(#arrowPrimary)" />
       <path d="M 600 290 L 600 365" stroke="#F59E0B" strokeWidth="2" fill="none" markerEnd="url(#arrowWarning)" />
-      <path d="M 820 290 L 1010 365" stroke="#42A5F5" strokeWidth="2" fill="none" markerEnd="url(#arrowInfo)" />
+      <path d="M 820 290 L 820 320 L 1010 320 L 1010 365" stroke="#42A5F5" strokeWidth="2" fill="none" markerEnd="url(#arrowInfo)" />
 
       {/* ============ ROW 4: Results Collector ============ */}
 
@@ -113,9 +113,9 @@ export default function ArchitectureDiagram() {
 
       {/* ============ Arrows: Workers -> Results Collector (clean paths) ============ */}
 
-      <path d="M 190 470 L 375 530" stroke="#66BB6A" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" strokeDasharray="3,3" />
+      <path d="M 190 470 L 190 500 L 380 500 L 380 525" stroke="#66BB6A" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" strokeDasharray="3,3" />
       <path d="M 600 470 L 600 525" stroke="#66BB6A" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" strokeDasharray="3,3" />
-      <path d="M 1010 470 L 825 530" stroke="#66BB6A" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" strokeDasharray="3,3" />
+      <path d="M 1010 470 L 1010 500 L 820 500 L 820 525" stroke="#66BB6A" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" strokeDasharray="3,3" />
 
       {/* ============ Arrows: Results -> Storage + Backend (routing externally) ============ */}
 
@@ -129,33 +129,31 @@ export default function ArchitectureDiagram() {
 
       {/* ============ LEGEND ============ */}
 
-      <rect x="50" y="660" width="1100" height="140" fill="rgba(18, 18, 18, 0.5)" stroke="#666" strokeWidth="1" rx="6" />
-      <text x="600" y="688" textAnchor="middle" fill="#FF7800" fontSize="17" fontWeight="bold">Key Concepts</text>
+      <rect x="50" y="660" width="1100" height="110" fill="rgba(18, 18, 18, 0.5)" stroke="#666" strokeWidth="1" rx="6" />
+      <text x="600" y="695" textAnchor="middle" fill="#B0B0B0" fontSize="17" fontWeight="bold">Key Concepts</text>
+
+      {/* Column anchors for consistent alignment */}
+      {/* col1 = 100, col2 = 460, col3 = 820 */}
 
       {/* Row 1 */}
-      <circle cx="80" cy="720" r="7" fill="#FF6F00" />
-      <text x="100" y="725" fill="#FFA040" fontSize="11">Static Analysis: File inspection (no execution)</text>
+      <circle cx="100" cy="715" r="7" fill="#FF6F00" />
+      <text x="120" y="720" fill="#FFA040" fontSize="11">Static Analysis: File inspection (no execution)</text>
 
-      <circle cx="480" cy="720" r="7" fill="#F59E0B" />
-      <text x="500" y="725" fill="#FBBF24" fontSize="11">Dynamic Analysis: Behavior monitoring</text>
+      <circle cx="460" cy="715" r="7" fill="#F59E0B" />
+      <text x="480" y="720" fill="#FBBF24" fontSize="11">Dynamic Analysis: Behavior monitoring</text>
 
-      <circle cx="900" cy="720" r="7" fill="#42A5F5" />
-      <text x="920" y="725" fill="#64B5F6" fontSize="11">Third-Party: External APIs</text>
+      <circle cx="820" cy="715" r="7" fill="#42A5F5" />
+      <text x="840" y="720" fill="#64B5F6" fontSize="11">Third-Party: External APIs</text>
 
       {/* Row 2 */}
-      <rect x="72" y="745" width="14" height="14" fill="none" stroke="#9C27B0" strokeWidth="2" />
-      <text x="100" y="756" fill="#CE93D8" fontSize="11">Message-driven: Async task queuing</text>
+      <rect x="92" y="740" width="16" height="16" fill="none" stroke="#9C27B0" strokeWidth="2" />
+      <text x="120" y="752" fill="#CE93D8" fontSize="11">Message-driven: Async task queuing</text>
 
-      <line x1="480" y1="752" x2="525" y2="752" stroke="#4CAF50" strokeWidth="2" strokeDasharray="3,3" />
-      <text x="535" y="756" fill="#81C784" fontSize="11">Results: Dashed green lines</text>
+      <line x1="440" y1="748" x2="480" y2="748" stroke="#4CAF50" strokeWidth="2" strokeDasharray="3,3" />
+      <text x="500" y="752" fill="#81C784" fontSize="11">Results: Dashed green lines</text>
 
-      <line x1="900" y1="752" x2="945" y2="752" stroke="#2196F3" strokeWidth="2" strokeDasharray="4,4" />
-      <text x="955" y="756" fill="#64B5F6" fontSize="11">Real-time SSE events</text>
-
-      {/* Row 3 */}
-      <text x="80" y="782" fill="#AAA" fontSize="10">
-        <tspan fontWeight="bold" fill="#FF6F00">Extensibility:</tspan> Add plugins by creating worker containers + RabbitMQ queues
-      </text>
+      <line x1="800" y1="748" x2="840" y2="748" stroke="#2196F3" strokeWidth="2" strokeDasharray="4,4" />
+      <text x="860" y="752" fill="#64B5F6" fontSize="11">Real-time SSE events</text>
     </svg>
   );
 }
