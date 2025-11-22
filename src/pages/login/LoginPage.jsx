@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box } from '@mui/material';
 import ParticleBackground from './components/ParticleBackground';
 import LoginCard from './components/LoginCard';
 
-export default function LoginPage({ onEnter }) {
+export default function LoginPage() {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -20,7 +23,7 @@ export default function LoginPage({ onEnter }) {
       <ParticleBackground />
 
       {/* Login card */}
-      <LoginCard onEnter={onEnter} />
+      <LoginCard onEnter={() => navigate('/docs')} />
     </Box>
   );
 }
