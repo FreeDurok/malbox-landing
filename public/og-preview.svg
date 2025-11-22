@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff7800"/>
+      <stop offset="100%" stop-color="#ffa040"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="32" />
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" rx="24"/>
+  <text x="80" y="180" fill="url(#accent)" font-family="Inter, 'Segoe UI', sans-serif" font-size="68" font-weight="800">MalBox</text>
+  <text x="80" y="240" fill="#e5e7eb" font-family="Inter, 'Segoe UI', sans-serif" font-size="32" font-weight="600">Modular malware sandbox · Plugin-based · Docker / Kubernetes</text>
+  <text x="80" y="310" fill="#9ca3af" font-family="Inter, 'Segoe UI', sans-serif" font-size="26" font-weight="500">YARA · CAPA · Qiling · VirusTotal · Real-time SSE · RabbitMQ</text>
+  <rect x="80" y="370" width="460" height="120" fill="rgba(255,120,0,0.08)" stroke="#ff7800" stroke-width="2" rx="14"/>
+  <text x="110" y="415" fill="#ffcc99" font-family="Inter, 'Segoe UI', sans-serif" font-size="22" font-weight="700">Plugin Architecture</text>
+  <text x="110" y="450" fill="#f5f5f5" font-family="Inter, 'Segoe UI', sans-serif" font-size="18" font-weight="500">Official · Community · Third-Party</text>
+  <rect x="600" y="370" width="460" height="120" fill="rgba(66,165,245,0.08)" stroke="#42a5f5" stroke-width="2" rx="14"/>
+  <text x="630" y="415" fill="#b3ddff" font-family="Inter, 'Segoe UI', sans-serif" font-size="22" font-weight="700">Infrastructure</text>
+  <text x="630" y="450" fill="#f5f5f5" font-family="Inter, 'Segoe UI', sans-serif" font-size="18" font-weight="500">FastAPI · RabbitMQ · MongoDB · PostgreSQL</text>
+</svg>
