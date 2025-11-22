@@ -10,6 +10,17 @@ export default function ArchitectureDiagram() {
     >
       {/* Markers */}
       <defs>
+        {/* Sketch Filters */}
+        <filter id="sketchLight">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise" seed="2"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+
+        <filter id="sketchMedium">
+          <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="4" result="noise" seed="5"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+
         <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#2196F3" />
         </marker>
@@ -129,7 +140,7 @@ export default function ArchitectureDiagram() {
 
       {/* ============ LEGEND ============ */}
 
-      <rect x="50" y="660" width="1100" height="110" fill="rgba(18, 18, 18, 0.5)" stroke="#666" strokeWidth="1" rx="6" />
+      <rect x="50" y="660" width="1100" height="115" fill="rgba(18, 18, 18, 0.5)" stroke="#666" strokeWidth="1" rx="6" />
       <text x="600" y="695" textAnchor="middle" fill="#B0B0B0" fontSize="17" fontWeight="bold">Key Concepts</text>
 
       {/* Column anchors for consistent alignment */}
