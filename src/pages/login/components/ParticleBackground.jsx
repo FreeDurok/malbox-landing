@@ -235,7 +235,7 @@ export default function ParticleBackground() {
     // Cube management
     const cubes = [];
     const particlesPerCube = 15;
-    const maxCubes = 15;
+    const maxCubes = 10;
     const cubeSize = 50;
     const minDistanceBetweenCubes = 250; // Minimum distance between cubes
 
