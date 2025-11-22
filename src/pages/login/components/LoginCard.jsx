@@ -153,7 +153,7 @@ export default function LoginCard({ onEnter }) {
             transition: 'all 0.3s ease'
           }}
         >
-          Coming Soon - Under Development
+          Under Development - Enter Docs
         </Button>
 
         {/* Footer note */}
